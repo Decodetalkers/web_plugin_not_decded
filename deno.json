@@ -14,13 +14,17 @@
   "importMap": "./import_map.json",
   "lint": {
     "files": {
-      "exclude": ["dist"]
+      "exclude": [
+        "dist"
+      ]
     }
   },
   "tasks": {
     "build": "bext",
     "build:chrome": "bext chrome",
     "build:firefox": "bext firefox",
+    "run:chrome": "web-ext run -s ./dist/chrome/",
+    "run:firefox": "web-ext run -s ./dist/firefox/",
     "test": "deno fmt && deno task check && deno task test:unit && deno lint",
     "test:unit": "deno test -A source",
     "test:unit:update": "deno test -A -- --update source",

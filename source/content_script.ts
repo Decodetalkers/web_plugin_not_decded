@@ -7,6 +7,8 @@
 
 window.alert("Running Sample Browser Extension");
 
+document.body.style.border = "5px solid red";
+
 Array.prototype.forEach.call(
   document.getElementsByTagName("*"),
   replaceNode,
