@@ -20,9 +20,9 @@
     }
   },
   "tasks": {
-    "build": "bext",
-    "build:chrome": "bext chrome",
-    "build:firefox": "bext firefox",
+    "build": "deno run -A build.ts",
+    "build:chrome": "deno run -A build.ts chrome",
+    "build:firefox": "deno run -A build.ts firefox",
     "run:chrome": "web-ext run -s ./dist/chrome/",
     "run:firefox": "web-ext run -s ./dist/firefox/",
     "test": "deno fmt && deno task check && deno task test:unit && deno lint",
