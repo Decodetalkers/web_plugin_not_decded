@@ -117,7 +117,6 @@ const builds = Object.keys(browsers).map(async (browserId) => {
     esBuildOptions.plugins = [...esBuildOptions.plugins, watchplugin];
     const ctx = await esbuild.context({ ...esBuildOptions });
     await ctx.watch();
-    await ctx.serve();
   } else {
     await esbuild.build({ ...esBuildOptions });
   }
