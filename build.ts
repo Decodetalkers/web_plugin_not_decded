@@ -1,5 +1,5 @@
-import * as esbuild from "https://deno.land/x/esbuild@v0.15.10/mod.js";
-import { denoPlugin } from "https://deno.land/x/esbuild_deno_loader@0.6.0/mod.ts";
+import * as esbuild from "https://deno.land/x/esbuild@v0.19.2/mod.js";
+import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.8.2/mod.ts";
 import { parse } from "https://deno.land/std@0.170.0/flags/mod.ts";
 import { copySync, ensureDir } from "https://deno.land/std@0.170.0/fs/mod.ts";
 import { resolve } from "https://deno.land/std@0.170.0/path/mod.ts";
@@ -93,22 +93,34 @@ const builds = Object.keys(browsers).map(async (browserId) => {
     }
   }
 
-  esBuildOptions.plugins = [denoPlugin(
-    importMapURL ? { importMapURL } : {},
-  )];
+  esBuildOptions.plugins = [
+    ...denoPlugins(
+      importMapURL ? { importMapURL: importMapURL.toString() } : {},
+    ),
+  ];
 
-  // Add watch esbuild options
+  //// Add watch esbuild options
   if (isWatching) {
-    esBuildOptions.watch = {
-      onRebuild(error) {
-        if (error) {
-          console.error(`Rebuild for ${colorizedBrowserName} failed:`, error);
-        } else console.log(`Rebuilt for ${colorizedBrowserName}`);
+    const watchplugin: esbuild.Plugin = {
+      name: "my-plugin",
+      setup(build) {
+        build.onEnd((result) => {
+          if (result.errors.length != 0) {
+            console.error(
+              `Rebuild for ${colorizedBrowserName} failed:`,
+              result.errors,
+            );
+          } else console.log(`Rebuilt for ${colorizedBrowserName}`);
+        });
       },
     };
+    esBuildOptions.plugins = [...esBuildOptions.plugins, watchplugin];
+    const ctx = await esbuild.context({ ...esBuildOptions });
+    await ctx.watch();
+  } else {
+    await esbuild.build({ ...esBuildOptions });
   }
 
-  await esbuild.build(esBuildOptions);
   console.log(`Build complete for ${colorizedBrowserName}: ${resolve(outdir)}`);
 });
 
