@@ -102,7 +102,7 @@ const builds = Object.keys(browsers).map(async (browserId) => {
   //// Add watch esbuild options
   if (isWatching) {
     const watchplugin: esbuild.Plugin = {
-      name: "my-plugin",
+      name: "watch-plugin",
       setup(build) {
         build.onEnd((result) => {
           if (result.errors.length != 0) {
