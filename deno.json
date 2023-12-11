@@ -11,7 +11,6 @@
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment"
   },
-  "importMap": "./import_map.json",
   "lint": {
     "files": {
       "exclude": [
@@ -20,6 +19,9 @@
     }
   },
   "tasks": {
+    "esm:add": "deno run -A https://esm.sh/v135 add",
+    "esm:update": "deno run -A https://esm.sh/v135 update",
+    "esm:remove": "deno run -A https://esm.sh/v135 remove",
     "build": "deno run -A build.ts",
     "build:chrome": "deno run -A build.ts chrome",
     "build:chrome:watch": "deno run -A build.ts chrome -w",
@@ -35,5 +37,54 @@
     "check:content_script": "deno check source/content_script.ts",
     "check:options": "deno check source/options.tsx",
     "check:popup": "deno check source/popup.tsx"
+  },
+  "imports": {
+    "std/asserts": "https://deno.land/std@0.138.0/testing/asserts.ts",
+    "std/mock": "https://deno.land/std@0.138.0/testing/mock.ts",
+    "browser": "https://deno.land/x/bext@v0.1.2/mod.ts",
+    "deno-dom": "https://deno.land/x/deno_dom@v0.1.32-alpha/deno-dom-wasm.ts",
+    "preact/hooks": "https://esm.sh/preact@10.19.2/hooks?dev",
+    "@testing-library/preact": "https://esm.sh/v135/*@testing-library/preact@3.2.3",
+    "@testing-library/preact/": "https://esm.sh/v135/*@testing-library/preact@3.2.3/",
+    "preact": "https://esm.sh/v135/preact@10.19.3",
+    "preact/": "https://esm.sh/v135/preact@10.19.3/",
+    "preact/hooks@10.19": "https://esm.sh/v135/preact@10.19.3/hooks@10.19"
+  },
+  "scopes": {
+    "https://esm.sh/v135/": {
+      "@babel/runtime": "https://esm.sh/v135/@babel/runtime@7.21.0",
+      "@devicefarmer/adbkit": "https://esm.sh/v135/@devicefarmer/adbkit@3.2.3",
+      "@testing-library/dom": "https://esm.sh/v135/@testing-library/dom@8.20.1",
+      "addons-linter": "https://esm.sh/v135/addons-linter@6.19.0",
+      "bunyan": "https://esm.sh/v135/bunyan@1.8.15",
+      "camelcase": "https://esm.sh/v135/camelcase@7.0.1",
+      "chrome-launcher": "https://esm.sh/v135/chrome-launcher@0.15.1",
+      "debounce": "https://esm.sh/v135/debounce@1.2.1",
+      "decamelize": "https://esm.sh/v135/decamelize@6.0.0",
+      "es6-error": "https://esm.sh/v135/es6-error@4.1.1",
+      "firefox-profile": "https://esm.sh/v135/firefox-profile@4.3.2",
+      "fs-extra": "https://esm.sh/v135/fs-extra@11.1.0",
+      "fx-runner": "https://esm.sh/v135/fx-runner@1.3.0",
+      "import-fresh": "https://esm.sh/v135/import-fresh@3.3.0",
+      "jose": "https://esm.sh/v135/jose@4.13.1",
+      "mkdirp": "https://esm.sh/v135/mkdirp@1.0.4",
+      "multimatch": "https://esm.sh/v135/multimatch@6.0.0",
+      "mz": "https://esm.sh/v135/mz@2.7.0",
+      "node-fetch": "https://esm.sh/v135/node-fetch@3.3.1",
+      "node-notifier": "https://esm.sh/v135/node-notifier@10.0.1",
+      "open": "https://esm.sh/v135/open@8.4.2",
+      "parse-json": "https://esm.sh/v135/parse-json@6.0.2",
+      "promise-toolbox": "https://esm.sh/v135/promise-toolbox@0.21.0",
+      "sign-addon": "https://esm.sh/v135/sign-addon@5.3.0",
+      "source-map-support": "https://esm.sh/v135/source-map-support@0.5.21",
+      "strip-bom": "https://esm.sh/v135/strip-bom@5.0.0",
+      "strip-json-comments": "https://esm.sh/v135/strip-json-comments@5.0.0",
+      "tmp": "https://esm.sh/v135/tmp@0.2.1",
+      "update-notifier": "https://esm.sh/v135/update-notifier@6.0.2",
+      "watchpack": "https://esm.sh/v135/watchpack@2.4.0",
+      "ws": "https://esm.sh/v135/ws@8.13.0",
+      "yargs": "https://esm.sh/v135/yargs@17.7.1",
+      "zip-dir": "https://esm.sh/v135/zip-dir@2.0.0"
+    }
   }
 }
