@@ -39,8 +39,13 @@
     "check:popup": "deno check source/popup.tsx"
   },
   "imports": {
+    "std/path": "https://deno.land/std@0.170.0/path/mod.ts",
+    "std/fs": "https://deno.land/std@0.170.0/fs/mod.ts",
+    "std/flags": "https://deno.land/std@0.170.0/flags/mod.ts",
     "std/asserts": "https://deno.land/std@0.138.0/testing/asserts.ts",
     "std/mock": "https://deno.land/std@0.138.0/testing/mock.ts",
+    "esbuild_deno_loader": "https://deno.land/x/esbuild_deno_loader@0.8.2/mod.ts",
+    "esbuild": "https://deno.land/x/esbuild@v0.19.2/mod.js",
     "browser": "https://deno.land/x/bext@v0.1.2/mod.ts",
     "deno-dom": "https://deno.land/x/deno_dom@v0.1.32-alpha/deno-dom-wasm.ts",
     "preact/hooks": "https://esm.sh/preact@10.19.2/hooks?dev",

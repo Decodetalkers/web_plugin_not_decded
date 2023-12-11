@@ -1,8 +1,8 @@
-import * as esbuild from "https://deno.land/x/esbuild@v0.19.2/mod.js";
-import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.8.2/mod.ts";
-import { parse } from "https://deno.land/std@0.170.0/flags/mod.ts";
-import { copySync, ensureDir } from "https://deno.land/std@0.170.0/fs/mod.ts";
-import { resolve } from "https://deno.land/std@0.170.0/path/mod.ts";
+import * as esbuild from "esbuild";
+import { denoPlugins } from "esbuild_deno_loader";
+import { parse } from "std/flags";
+import { copySync, ensureDir } from "std/fs";
+import { resolve } from "std/path";
 
 interface BrowserManifestSettings {
   color: string;
