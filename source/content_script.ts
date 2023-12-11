@@ -48,3 +48,9 @@ function replaceNode(element: Element) {
     }
   });
 }
+
+
+// document https://developer.mozilla.org/en-US/docs/Web/API/Document/selectionchange_event
+document.addEventListener("selectionchange", () => {
+  console.log(globalThis.getSelection()?.toString());
+});
