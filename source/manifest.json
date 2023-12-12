@@ -24,7 +24,9 @@
     "browser_style": false
   },
   "permissions": [
-    "storage"
+    "storage",
+    "webRequest",
+    "<all_urls>"
   ],
   "optional_permissions": [
     "tabs"

@@ -103,7 +103,7 @@ const builds = Object.keys(browsers).map(async (browserId) => {
     ),
   ];
 
-  //// Add watch esbuild options
+  // Add watch esbuild options
   if (isWatching) {
     const watchplugin: esbuild.Plugin = {
       name: "watch-plugin",

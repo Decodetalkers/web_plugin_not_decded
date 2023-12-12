@@ -49,8 +49,26 @@ function replaceNode(element: Element) {
   });
 }
 
-
 // document https://developer.mozilla.org/en-US/docs/Web/API/Document/selectionchange_event
-document.addEventListener("selectionchange", () => {
-  console.log(globalThis.getSelection()?.toString());
+document.addEventListener("selectionchange", async () => {
+  const selection = globalThis.getSelection()?.toString();
+  if (selection) {
+    console.log(selection);
+    const url = new URL("https://translate.googleapis.com/translate_a/single");
+    const search = new URLSearchParams();
+    search.append("client", "gt");
+    search.append("ie", "UTF-8");
+    search.append("oe", "UTF-8");
+    search.append("dt", "t");
+    search.append("sl", "en");
+    search.append("tl", "zh");
+    search.append("q", selection);
+    url.search = search.toString();
+
+    const response = await fetch(url);
+    console.log(response.status); // e.g. 200
+    console.log(response.statusText); // e.g. "OK"
+    const jsonData = await response.json();
+    console.log(jsonData);
+  }
 });
