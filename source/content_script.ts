@@ -56,11 +56,11 @@ document.addEventListener("selectionchange", async () => {
     console.log(selection);
     const url = new URL("https://translate.googleapis.com/translate_a/single");
     const search = new URLSearchParams();
-    search.append("client", "gt");
+    search.append("client", "gtx");
     search.append("ie", "UTF-8");
     search.append("oe", "UTF-8");
     search.append("dt", "t");
-    search.append("sl", "en");
+    search.append("sl", "auto");
     search.append("tl", "zh");
     search.append("q", selection);
     url.search = search.toString();
