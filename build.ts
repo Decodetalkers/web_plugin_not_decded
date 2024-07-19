@@ -1,8 +1,8 @@
 import * as esbuild from "esbuild";
 import { denoPlugins } from "esbuild_deno_loader";
-import { parse } from "std/flags";
-import { copySync, ensureDir } from "std/fs";
-import { resolve } from "std/path";
+import { parse } from "@std/flags";
+import { copySync, ensureDir } from "@std/fs";
+import { resolve } from "@std/path";
 
 interface BrowserManifestSettings {
   color: string;

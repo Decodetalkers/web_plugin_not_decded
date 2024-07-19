@@ -1,6 +1,6 @@
 import browserAPI from "browser";
-import { assertStrictEquals } from "std/asserts";
-import { assertSpyCall, assertSpyCalls, stub } from "std/mock";
+import { assertStrictEquals } from "@std/testing/asserts";
+import { assertSpyCall, assertSpyCalls, stub } from "@std/testing/mock";
 
 import { getStorage } from "./storage_helpers.ts";
 

@@ -1,4 +1,4 @@
-import { DOMParser } from "deno-dom";
+import { DOMParser } from "@b-fuze/deno-dom";
 
 globalThis.document = new DOMParser()
   .parseFromString(

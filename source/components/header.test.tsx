@@ -1,6 +1,6 @@
 /* @jsx h */
 import { h } from "preact";
-import { assertEquals } from "std/asserts";
+import { assertEquals } from "@std/assert";
 import { render } from "@testing-library/preact";
 
 import "../utilities/test_dom.ts";
