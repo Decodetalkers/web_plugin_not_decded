@@ -19,9 +19,6 @@
     }
   },
   "tasks": {
-    "esm:add": "deno run -A https://esm.sh/v135 add",
-    "esm:update": "deno run -A https://esm.sh/v135 update",
-    "esm:remove": "deno run -A https://esm.sh/v135 remove",
     "build": "deno run -A build.ts",
     "build:chrome": "deno run -A build.ts chrome",
     "build:chrome:watch": "deno run -A build.ts chrome -w",
