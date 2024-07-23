@@ -3,11 +3,13 @@
   "packages": {
     "specifiers": {
       "jsr:@b-fuze/deno-dom@^0.1.47": "jsr:@b-fuze/deno-dom@0.1.47",
+      "jsr:@bpev/bext@^1.2.0-beta.1": "jsr:@bpev/bext@1.2.0-beta.1",
       "jsr:@luca/esbuild-deno-loader@^0.10.3": "jsr:@luca/esbuild-deno-loader@0.10.3",
       "jsr:@std/assert@1.0.0-rc.2": "jsr:@std/assert@1.0.0-rc.2",
       "jsr:@std/assert@^0.213.1": "jsr:@std/assert@0.213.1",
       "jsr:@std/assert@^0.224.0": "jsr:@std/assert@0.224.0",
       "jsr:@std/assert@^1.0.0": "jsr:@std/assert@1.0.0",
+      "jsr:@std/cli@^1.0.0": "jsr:@std/cli@1.0.0",
       "jsr:@std/encoding@0.213": "jsr:@std/encoding@0.213.1",
       "jsr:@std/flags@^0.224.0": "jsr:@std/flags@0.224.0",
       "jsr:@std/fs@^0.229.3": "jsr:@std/fs@0.229.3",
@@ -19,6 +21,7 @@
       "jsr:@std/path@^1.0.1": "jsr:@std/path@1.0.1",
       "jsr:@std/testing@^0.225.3": "jsr:@std/testing@0.225.3",
       "npm:@testing-library/preact@^3.2.4": "npm:@testing-library/preact@3.2.4_preact@10.22.1",
+      "npm:@types/chrome@0.0.268": "npm:@types/chrome@0.0.268",
       "npm:@types/node": "npm:@types/node@18.16.19",
       "npm:esbuild@^0.23.0": "npm:esbuild@0.23.0",
       "npm:preact@^10.22.1": "npm:preact@10.22.1",
@@ -27,6 +30,12 @@
     "jsr": {
       "@b-fuze/deno-dom@0.1.47": {
         "integrity": "270a888de91329f8ce3849211ece0ad97ce1e8b9a8a774f2bed2f43c8b0ffe8e"
+      },
+      "@bpev/bext@1.2.0-beta.1": {
+        "integrity": "a749abce3654ec6d0eb8d8f5d6a91c9314efc7bea1bc36eed7dee9c2974b0b62",
+        "dependencies": [
+          "npm:@types/chrome@0.0.268"
+        ]
       },
       "@luca/esbuild-deno-loader@0.10.3": {
         "integrity": "32fc93f7e7f78060234fd5929a740668aab1c742b808c6048b57f9aaea514921",
@@ -53,6 +62,9 @@
         "dependencies": [
           "jsr:@std/internal@^1.0.0"
         ]
+      },
+      "@std/cli@1.0.0": {
+        "integrity": "3c38f1da21bff0d25a9e6d97139ef2eb9ba334b5910da92c0169b44f38655f08"
       },
       "@std/encoding@0.213.1": {
         "integrity": "fcbb6928713dde941a18ca5db88ca1544d0755ec8fb20fe61e2dc8144b390c62"
@@ -382,6 +394,27 @@
       },
       "@types/aria-query@5.0.4": {
         "integrity": "sha512-rfT93uj5s0PRL7EzccGMs3brplhcrghnDoV26NqKhCAS1hVo+WdNsPvE/yb6ilfr5hi2MEk6d5EWJTKdxg8jVw==",
+        "dependencies": {}
+      },
+      "@types/chrome@0.0.268": {
+        "integrity": "sha512-7N1QH9buudSJ7sI8Pe4mBHJr5oZ48s0hcanI9w3wgijAlv1OZNUZve9JR4x42dn5lJ5Sm87V1JNfnoh10EnQlA==",
+        "dependencies": {
+          "@types/filesystem": "@types/filesystem@0.0.36",
+          "@types/har-format": "@types/har-format@1.2.15"
+        }
+      },
+      "@types/filesystem@0.0.36": {
+        "integrity": "sha512-vPDXOZuannb9FZdxgHnqSwAG/jvdGM8Wq+6N4D/d80z+D4HWH+bItqsZaVRQykAn6WEVeEkLm2oQigyHtgb0RA==",
+        "dependencies": {
+          "@types/filewriter": "@types/filewriter@0.0.33"
+        }
+      },
+      "@types/filewriter@0.0.33": {
+        "integrity": "sha512-xFU8ZXTw4gd358lb2jw25nxY9QAgqn2+bKKjKOYfNCzN4DKCFetK7sPtrlpg66Ywe3vWY9FNxprZawAh9wfJ3g==",
+        "dependencies": {}
+      },
+      "@types/har-format@1.2.15": {
+        "integrity": "sha512-RpQH4rXLuvTXKR0zqHq3go0RVXYv/YVqv4TnPH95VbwUxZdQlK1EtcMvQvMpDngHbt13Csh9Z4qT9AbkiQH5BA==",
         "dependencies": {}
       },
       "@types/http-cache-semantics@4.0.4": {
@@ -3176,8 +3209,10 @@
   "workspace": {
     "dependencies": [
       "jsr:@b-fuze/deno-dom@^0.1.47",
+      "jsr:@bpev/bext@^1.2.0-beta.1",
       "jsr:@luca/esbuild-deno-loader@^0.10.3",
       "jsr:@std/assert@^1.0.0",
+      "jsr:@std/cli@^1.0.0",
       "jsr:@std/flags@^0.224.0",
       "jsr:@std/fs@^0.229.3",
       "jsr:@std/path@^1.0.1",
