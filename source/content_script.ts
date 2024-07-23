@@ -5,7 +5,7 @@
 
 /// <reference lib="dom" />
 
-window.alert("Running Sample Browser Extension");
+globalThis.alert("Running Sample Browser Extension");
 
 document.body.style.border = "5px solid red";
 
