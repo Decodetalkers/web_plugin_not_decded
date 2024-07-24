@@ -93,14 +93,10 @@ const builds = Object.keys(browsers).map(async (browserId) => {
 
   esBuildOptions.plugins = [
     ...denoPlugins(
-      importMapURL
-        ? {
-          importMapURL: importMapURL,
-          configPath: configUrl,
-        }
-        : {
-          configPath: configUrl,
-        },
+      {
+        importMapURL: importMapURL,
+        configPath: configUrl,
+      },
     ),
   ];
 
