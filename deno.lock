@@ -3,7 +3,7 @@
   "packages": {
     "specifiers": {
       "jsr:@b-fuze/deno-dom@^0.1.47": "jsr:@b-fuze/deno-dom@0.1.47",
-      "jsr:@bpev/bext@^1.2.2": "jsr:@bpev/bext@1.2.2",
+      "jsr:@bpev/bext@^1.3.0": "jsr:@bpev/bext@1.3.0",
       "jsr:@luca/esbuild-deno-loader@^0.10.3": "jsr:@luca/esbuild-deno-loader@0.10.3",
       "jsr:@std/assert@1.0.0-rc.2": "jsr:@std/assert@1.0.0-rc.2",
       "jsr:@std/assert@^0.213.1": "jsr:@std/assert@0.213.1",
@@ -31,8 +31,8 @@
       "@b-fuze/deno-dom@0.1.47": {
         "integrity": "270a888de91329f8ce3849211ece0ad97ce1e8b9a8a774f2bed2f43c8b0ffe8e"
       },
-      "@bpev/bext@1.2.2": {
-        "integrity": "55252626097404e7813351c6a6300998af18a03c3d5bfc24c28c92dea3b7b597",
+      "@bpev/bext@1.3.0": {
+        "integrity": "03e81d29ab907bb306bbc5c01c4faa49162daa921d6d66866f9081f4663656bd",
         "dependencies": [
           "npm:@types/chrome@0.0.268"
         ]
@@ -3209,7 +3209,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@b-fuze/deno-dom@^0.1.47",
-      "jsr:@bpev/bext@^1.2.2",
+      "jsr:@bpev/bext@^1.3.0",
       "jsr:@luca/esbuild-deno-loader@^0.10.3",
       "jsr:@std/assert@^1.0.0",
       "jsr:@std/cli@^1.0.0",
