@@ -1,6 +1,4 @@
-/* @jsx h */
-import { h, render } from "preact";
-
+import { render } from "preact";
 import Header from "./components/header.tsx";
 import Switch from "./components/switch.tsx";
 import useRoute from "./hooks/use_route.ts";

@@ -3,7 +3,7 @@ import { denoPlugins } from "esbuild_deno_loader";
 import { copySync, ensureDir } from "@std/fs";
 import { resolve } from "@std/path";
 import { parseArgs } from "@std/cli";
-
+import webExt from "@nobody/web-ext-deno";
 interface BrowserManifestSettings {
   color: string;
   omits: string[];
@@ -76,6 +76,8 @@ const builds = Object.keys(browsers).map(async (browserId) => {
       "source/background.ts",
       "source/popup.tsx",
     ],
+    jsxImportSource: "npm:preact",
+    jsx: "automatic",
     outdir,
     bundle: true,
     format: "esm",
@@ -126,7 +128,12 @@ const builds = Object.keys(browsers).map(async (browserId) => {
 });
 
 await Promise.all(builds);
+
 if (!isWatching) Deno.exit(0);
+await webExt.cmd(
+  { browserInfo: { browser: "firefox" }, sourceDir: "./dist/firefox" },
+  { options: { port: 8080 } },
+);
 
 function existsSync(filePath: string | URL): boolean {
   try {
