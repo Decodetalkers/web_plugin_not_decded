@@ -8,7 +8,7 @@
     "jsr:@luca/esbuild-deno-loader@~0.11.1": "0.11.1",
     "jsr:@nobody/firefox-profile-deno@~0.3.2": "0.3.3",
     "jsr:@nobody/styled-components-deno@~0.8.2": "0.8.2",
-    "jsr:@nobody/tananoni@~0.4.5": "0.4.5",
+    "jsr:@nobody/tananoni@~0.4.7": "0.4.7",
     "jsr:@nobody/web-ext-deno@0.3": "0.3.0",
     "jsr:@nobody/xpi-util@0.2": "0.2.1",
     "jsr:@nobody/xpi-util@~0.2.1": "0.2.1",
@@ -23,7 +23,7 @@
     "jsr:@std/data-structures@^1.0.6": "1.0.6",
     "jsr:@std/encoding@0.213": "0.213.1",
     "jsr:@std/encoding@0.213.1": "0.213.1",
-    "jsr:@std/encoding@^1.0.5": "1.0.5",
+    "jsr:@std/encoding@^1.0.5": "1.0.6",
     "jsr:@std/flags@0.224": "0.224.0",
     "jsr:@std/fmt@0.213.1": "0.213.1",
     "jsr:@std/fmt@^1.0.4": "1.0.4",
@@ -114,8 +114,8 @@
         "npm:react"
       ]
     },
-    "@nobody/tananoni@0.4.5": {
-      "integrity": "0ffb2ae404115f55904704fa6801c558f00ca53788171c3043d791818d697ce6",
+    "@nobody/tananoni@0.4.7": {
+      "integrity": "cd711676887bffa5c297fde1b78c009276063d4eace08422c7153e3c7c6319fc",
       "dependencies": [
         "jsr:@luca/esbuild-deno-loader@~0.11.1",
         "jsr:@std/assert@^1.0.9",
@@ -174,6 +174,9 @@
     },
     "@std/encoding@1.0.5": {
       "integrity": "ecf363d4fc25bd85bd915ff6733a7e79b67e0e7806334af15f4645c569fefc04"
+    },
+    "@std/encoding@1.0.6": {
+      "integrity": "ca87122c196e8831737d9547acf001766618e78cd8c33920776c7f5885546069"
     },
     "@std/flags@0.224.0": {
       "integrity": "d40eaf58c356b2e1313c6d4e62dc28b614aad2ddae6f5ff72a969e0b1f5ad689",
@@ -1026,7 +1029,7 @@
       "jsr:@bpev/bext@^1.3.1",
       "jsr:@luca/esbuild-deno-loader@~0.11.1",
       "jsr:@nobody/styled-components-deno@~0.8.2",
-      "jsr:@nobody/tananoni@~0.4.5",
+      "jsr:@nobody/tananoni@~0.4.7",
       "jsr:@nobody/web-ext-deno@0.3",
       "jsr:@std/assert@^1.0.10",
       "jsr:@std/cli@1",

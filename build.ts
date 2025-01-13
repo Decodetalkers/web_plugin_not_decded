@@ -112,7 +112,8 @@ const builds = Object.keys(browsers).map(async (browserId) => {
   const route = genRoute(routeDir);
   const webgen = new GenWebsite()
     .withLogLevel("info")
-    .withImportSource("npm:preact");
+    .withImportSource("npm:preact")
+    .withFormat("iife");
 
   // Add watch esbuild options
   if (isWatching) {
