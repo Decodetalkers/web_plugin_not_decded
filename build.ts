@@ -1,9 +1,15 @@
 import * as esbuild from "esbuild";
-import { denoPlugins } from "esbuild_deno_loader";
 import { copySync, ensureDir } from "@std/fs";
 import { resolve } from "@std/path";
 import { parseArgs } from "@std/cli";
 import webExt from "@nobody/web-ext-deno";
+
+import {
+  GenWebsite,
+  JavaScriptUnit,
+  Route,
+  WebPageUnit,
+} from "@nobody/tananoni";
 interface BrowserManifestSettings {
   color: string;
   omits: string[];
@@ -40,6 +46,30 @@ if (args._[0] === "firefox") delete browsers.chrome;
 
 console.log("\x1b[37mPackager\n========\x1b[0m");
 
+const styles_asserts = { path: "static/styles" };
+const icon_asserts = { path: "static/icons" };
+
+function genRoute(path: string): Route {
+  const pluginRoute = new Route(path)
+    .appendAssert(styles_asserts)
+    .appendAssert(icon_asserts)
+    .appendWebPage(
+      new WebPageUnit("./source/options.tsx", [{ type: "div", id: "mount" }], [{
+        type: "module",
+        src: "options.js",
+      }]),
+    )
+    .appendWebPage(
+      new WebPageUnit("./source/popup.tsx", [{ type: "div", id: "mount" }], [{
+        type: "module",
+        src: "options.js",
+      }]),
+    )
+    .appendJavaScript(new JavaScriptUnit("./source/content_script.ts"))
+    .appendJavaScript(new JavaScriptUnit("./source/background.ts"));
+  return pluginRoute;
+}
+
 const builds = Object.keys(browsers).map(async (browserId) => {
   const distDir = `dist/${browserId}`;
 
@@ -69,38 +99,12 @@ const builds = Object.keys(browsers).map(async (browserId) => {
   const outdir = `dist/${browserId}/`;
 
   console.log(`Initializing ${colorizedBrowserName} build...`);
-  const esBuildOptions: esbuild.BuildOptions = {
-    entryPoints: [
-      "source/options.tsx",
-      "source/content_script.ts",
-      "source/background.ts",
-      "source/popup.tsx",
-    ],
-    jsxImportSource: "npm:preact",
-    jsx: "automatic",
-    outdir,
-    bundle: true,
-    format: "esm",
-    logLevel: "verbose",
-    plugins: [],
-  };
 
-  // Build Deno Plugin Options
-  let importMapURL: string | undefined = resolve("./import_map.json");
-
-  if (!existsSync(importMapURL)) {
-    importMapURL = undefined;
-  }
-  const configUrl = resolve("./deno.json");
-
-  esBuildOptions.plugins = [
-    ...denoPlugins(
-      {
-        importMapURL: importMapURL,
-        configPath: configUrl,
-      },
-    ),
-  ];
+  const routeDir = browserId;
+  const route = genRoute(routeDir);
+  const webgen = new GenWebsite()
+    .withLogLevel("info")
+    .withImportSource("npm:preact");
 
   // Add watch esbuild options
   if (isWatching) {
@@ -117,11 +121,11 @@ const builds = Object.keys(browsers).map(async (browserId) => {
         });
       },
     };
-    esBuildOptions.plugins = [...esBuildOptions.plugins, watchplugin];
-    const ctx = await esbuild.context({ ...esBuildOptions });
-    await ctx.watch();
+    webgen.appendPlugin(watchplugin);
+    const [ctxResult] = await webgen.generateWebsiteWithContext(route);
+    await ctxResult.ctx.watch();
   } else {
-    await esbuild.build({ ...esBuildOptions });
+    await webgen.generateWebsite(route);
   }
 
   console.log(`Build complete for ${colorizedBrowserName}: ${resolve(outdir)}`);
@@ -134,13 +138,3 @@ await webExt.cmd(
   { browserInfo: { browser: "firefox" }, sourceDir: "./dist/firefox" },
   { options: { port: 8080 } },
 );
-
-function existsSync(filePath: string | URL): boolean {
-  try {
-    Deno.lstatSync(filePath);
-    return true;
-  } catch (error) {
-    if (error instanceof Deno.errors.NotFound) return false;
-    throw error;
-  }
-}
