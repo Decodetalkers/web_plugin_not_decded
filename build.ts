@@ -2,7 +2,7 @@ import * as esbuild from "esbuild";
 import { copySync, ensureDir } from "@std/fs";
 import { resolve } from "@std/path";
 import { parseArgs } from "@std/cli";
-import webExt from "@nobody/web-ext-deno";
+import webExt, { ExtTarget } from "@nobody/web-ext-deno";
 
 import {
   GenWebsite,
@@ -10,7 +10,6 @@ import {
   Route,
   WebPageUnit,
 } from "@nobody/tananoni";
-import { ExtTarget } from "https://jsr.io/@nobody/web-ext-deno/0.3.0/run.ts";
 interface BrowserManifestSettings {
   color: string;
   omits: string[];

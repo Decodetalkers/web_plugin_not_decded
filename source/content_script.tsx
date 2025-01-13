@@ -40,11 +40,14 @@ const FloatButton = dynamicCSS<ButtonInfo>`
 function TranslateBtn() {
   const [visible, setVisible] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [btnText, setBtnText] = useState("");
 
   useEffect(() => {
     const handleMouseUp = (e: MouseEvent) => {
       const selection = globalThis.getSelection();
       if (selection?.toString().trim()) {
+        setBtnText(selection.toString());
+
         setPosition({ x: e.pageX + 10, y: e.pageY + 10 });
         setVisible(true);
       } else {
@@ -63,6 +66,7 @@ function TranslateBtn() {
       const span = document.createElement("span");
       span.style.textDecoration = "line-through";
       span.textContent = selection.toString();
+
       range.deleteContents();
       range.insertNode(span);
       selection.removeAllRanges();
@@ -80,7 +84,7 @@ function TranslateBtn() {
       })}
       onClick={handleClick}
     >
-      Hello
+      {btnText}
     </button>
   );
 }
