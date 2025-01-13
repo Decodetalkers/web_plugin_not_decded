@@ -8,7 +8,7 @@
     "jsr:@luca/esbuild-deno-loader@~0.11.1": "0.11.1",
     "jsr:@nobody/firefox-profile-deno@~0.3.2": "0.3.3",
     "jsr:@nobody/styled-components-deno@~0.8.2": "0.8.2",
-    "jsr:@nobody/tananoni@~0.4.7": "0.4.7",
+    "jsr:@nobody/tananoni@~0.4.8": "0.4.8",
     "jsr:@nobody/web-ext-deno@0.3": "0.3.0",
     "jsr:@nobody/xpi-util@0.2": "0.2.1",
     "jsr:@nobody/xpi-util@~0.2.1": "0.2.1",
@@ -114,8 +114,8 @@
         "npm:react"
       ]
     },
-    "@nobody/tananoni@0.4.7": {
-      "integrity": "cd711676887bffa5c297fde1b78c009276063d4eace08422c7153e3c7c6319fc",
+    "@nobody/tananoni@0.4.8": {
+      "integrity": "a8f89dcafdefaa5f29c0d373c141c255657c11c23c5814bb0393a9b053b25dba",
       "dependencies": [
         "jsr:@luca/esbuild-deno-loader@~0.11.1",
         "jsr:@std/assert@^1.0.9",
@@ -1029,7 +1029,7 @@
       "jsr:@bpev/bext@^1.3.1",
       "jsr:@luca/esbuild-deno-loader@~0.11.1",
       "jsr:@nobody/styled-components-deno@~0.8.2",
-      "jsr:@nobody/tananoni@~0.4.7",
+      "jsr:@nobody/tananoni@~0.4.8",
       "jsr:@nobody/web-ext-deno@0.3",
       "jsr:@std/assert@^1.0.10",
       "jsr:@std/cli@1",
