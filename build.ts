@@ -10,6 +10,7 @@ import {
   Route,
   WebPageUnit,
 } from "@nobody/tananoni";
+import { ExtTarget } from "https://jsr.io/@nobody/web-ext-deno/0.3.0/run.ts";
 interface BrowserManifestSettings {
   color: string;
   omits: string[];
@@ -41,6 +42,13 @@ const browsers: BrowserManifests = {
   },
 };
 
+let browser: ExtTarget = "firefox";
+let dist = "dist/firefox";
+if (args._[0] === "chrome") {
+  browser = "chrome";
+  dist = "dist/chrome";
+}
+
 if (args._[0] === "chrome") delete browsers.firefox;
 if (args._[0] === "firefox") delete browsers.chrome;
 
@@ -65,7 +73,7 @@ function genRoute(path: string): Route {
         src: "options.js",
       }]),
     )
-    .appendJavaScript(new JavaScriptUnit("./source/content_script.ts"))
+    .appendJavaScript(new JavaScriptUnit("./source/content_script.tsx"))
     .appendJavaScript(new JavaScriptUnit("./source/background.ts"));
   return pluginRoute;
 }
@@ -134,7 +142,8 @@ const builds = Object.keys(browsers).map(async (browserId) => {
 await Promise.all(builds);
 
 if (!isWatching) Deno.exit(0);
+
 await webExt.cmd(
-  { browserInfo: { browser: "firefox" }, sourceDir: "./dist/firefox" },
+  { browserInfo: { browser }, sourceDir: dist },
   { options: { port: 8080 } },
 );

@@ -7,6 +7,7 @@
     "jsr:@luca/esbuild-deno-loader@~0.10.3": "0.10.3",
     "jsr:@luca/esbuild-deno-loader@~0.11.1": "0.11.1",
     "jsr:@nobody/firefox-profile-deno@~0.3.2": "0.3.3",
+    "jsr:@nobody/styled-components-deno@~0.8.2": "0.8.2",
     "jsr:@nobody/tananoni@~0.4.5": "0.4.5",
     "jsr:@nobody/web-ext-deno@0.3": "0.3.0",
     "jsr:@nobody/xpi-util@0.2": "0.2.1",
@@ -50,7 +51,8 @@
     "npm:esbuild@0.24": "0.24.2",
     "npm:esbuild@~0.24.2": "0.24.2",
     "npm:preact@*": "10.25.4",
-    "npm:preact@^11.0.0-experimental.1": "11.0.0-experimental.1"
+    "npm:preact@^10.23.2": "10.25.4",
+    "npm:react@^18.3.1": "18.3.1"
   },
   "jsr": {
     "@b-fuze/deno-dom@0.1.49": {
@@ -103,6 +105,13 @@
         "jsr:@std/ini",
         "jsr:@std/log",
         "jsr:@std/path@^1.0.8"
+      ]
+    },
+    "@nobody/styled-components-deno@0.8.2": {
+      "integrity": "9a3795374844bdcf0d09453fd9b6725cc047222440b0ac20376b254c04bb0b5e",
+      "dependencies": [
+        "npm:preact@^10.23.2",
+        "npm:react"
       ]
     },
     "@nobody/tananoni@0.4.5": {
@@ -428,7 +437,7 @@
       "integrity": "sha512-F+kJ243LP6VmEK1M809unzTE/ijg+bsMNuiRN0JEDIJBELKKDNhdgC/WrUSZ7klwJvtlO3wQZ9ix+jhObG07Fg==",
       "dependencies": [
         "@testing-library/dom",
-        "preact@10.25.4"
+        "preact"
       ]
     },
     "@types/aria-query@5.0.4": {
@@ -827,6 +836,12 @@
     "js-tokens@4.0.0": {
       "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
     },
+    "loose-envify@1.4.0": {
+      "integrity": "sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==",
+      "dependencies": [
+        "js-tokens"
+      ]
+    },
     "lz-string@1.5.0": {
       "integrity": "sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ=="
     },
@@ -866,9 +881,6 @@
     "preact@10.25.4": {
       "integrity": "sha512-jLdZDb+Q+odkHJ+MpW/9U5cODzqnB+fy2EiHSZES7ldV5LK7yjlVzTp7R8Xy6W6y75kfK8iWYtFVH7lvjwrCMA=="
     },
-    "preact@11.0.0-experimental.1": {
-      "integrity": "sha512-a5AyuvVRDFkzF/sQNTEk7fhHSssq8fxUML9meWt5gDiS29F0KTnvlaMDWudQ7vuM7NZZPdw8Y2/1KeLUIqN4vw=="
-    },
     "pretty-format@27.5.1": {
       "integrity": "sha512-Qb1gy5OrP5+zDf2Bvnzdl3jsTf1qXVMazbvCoKhtKqVs4/YK4ozX4gKQJJVyNe+cajNPn0KoC0MC3FUmaHWEmQ==",
       "dependencies": [
@@ -879,6 +891,12 @@
     },
     "react-is@17.0.2": {
       "integrity": "sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w=="
+    },
+    "react@18.3.1": {
+      "integrity": "sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==",
+      "dependencies": [
+        "loose-envify"
+      ]
     },
     "regenerator-runtime@0.14.1": {
       "integrity": "sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw=="
@@ -1007,6 +1025,7 @@
       "jsr:@b-fuze/deno-dom@~0.1.49",
       "jsr:@bpev/bext@^1.3.1",
       "jsr:@luca/esbuild-deno-loader@~0.11.1",
+      "jsr:@nobody/styled-components-deno@~0.8.2",
       "jsr:@nobody/tananoni@~0.4.5",
       "jsr:@nobody/web-ext-deno@0.3",
       "jsr:@std/assert@^1.0.10",
@@ -1018,7 +1037,7 @@
       "npm:@testing-library/preact@^3.2.4",
       "npm:esbuild@~0.24.2",
       "npm:preact@*",
-      "npm:preact@^11.0.0-experimental.1"
+      "npm:preact@^10.23.2"
     ]
   }
 }
